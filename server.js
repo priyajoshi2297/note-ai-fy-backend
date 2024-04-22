@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 const cheerio = require("cheerio");
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -30,11 +30,10 @@ app.get("/api/get-complete-article-list", async (req, res) => {
   }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
-
